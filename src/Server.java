@@ -52,6 +52,8 @@ public class Server {
             //find mail-addresses in text
             mails = findMail(mails, url);
 
+
+
             //Sends mail-addresses back
             if (mails.isEmpty()) {
                 out.println("Found no eMail addresses on this URL : " + url);
@@ -66,19 +68,6 @@ public class Server {
             out.println("A connection to "+ str +" couldn't be established");
         }
         out.close();
-
-
-        /**
-         * send all website text back to client
-         * for debugging purposes
-         */
-            /*String inputLine;
-            BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-            while ((inputLine = in.readLine()) != null) {
-                out.println(inputLine);
-            }
-            in.close(); //close url-reader
-            */
 
         //Closes client socket
         soc.close();
