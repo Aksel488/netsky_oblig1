@@ -26,9 +26,18 @@ public class Client {
 
             //reading answer from server
             BufferedReader in = new BufferedReader(new InputStreamReader(soc.getInputStream()));
-            String inputLine;
-            while ((inputLine = in.readLine()) != null) {
-                System.out.println(inputLine);
+            String code = in.readLine();
+            if (code.equals("0")) {
+                String inputLine;
+                while ((inputLine = in.readLine()) != null) {
+                    System.out.println(inputLine);
+                }
+            } else if (code.equals("1")) {
+                System.out.println("!!!No email address found on the page!!!");
+            } else if (code.equals("2")) {
+                System.out.println("!!!Server couldn’t find the web page!!!");
+            } else {
+                System.out.println("Something went wrong");
             }
         }
         catch (Exception e) {
