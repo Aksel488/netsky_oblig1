@@ -52,20 +52,19 @@ public class Server {
             //find mail-addresses in text
             mails = findMail(mails, url);
 
-
-
             //Sends mail-addresses back
             if (mails.isEmpty()) {
-                out.println("Found no eMail addresses on this URL : " + url);
+                out.println("1"); //no emails was found
             } else {
+                out.println("0"); //emails was found
                 for (String Mail : mails) {
                     out.println(Mail);
                 }
             }
         } else if (urlCheck == 1){
-            out.println("The URL is not in a valid form : "+ str);
+            out.println("2"); //The URL is not in a valid form
         } else {
-            out.println("A connection to "+ str +" couldn't be established");
+            out.println("2"); //A connection to the URL couldn't be established
         }
         out.close();
 
